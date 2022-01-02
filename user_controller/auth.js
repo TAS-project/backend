@@ -27,15 +27,19 @@ exports.login = async (req, res, next) => {
 		const load_user = await User.findOne({
 			where: { Username: req.body.Username },
 		});
-		isCorrect = await encryption.verify(
-			req.body.Password,
-			load_user.Hash,
-			load_user.Salt
-		);
-		if (isCorrect) {
-			res.status(200).send(load_user);
-		} else {
+		if (load_user == null) {
 			res.status(401).send("Wrong username or password");
+		} else {
+			isCorrect = await encryption.verify(
+				req.body.Password,
+				load_user.Hash,
+				load_user.Salt
+			);
+			if (isCorrect) {
+				res.status(200).send(load_user);
+			} else {
+				res.status(401).send("Wrong username or password");
+			}
 		}
 	} catch (e) {
 		res.status(400).send(e);

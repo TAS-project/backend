@@ -39,6 +39,22 @@ const User = sequelize.define("User", {
 		trim: true,
 		unique: true,
 	},
+	About: {
+		type: Sequelize.STRING,
+		len: [0, 500],
+		defaultValue: "",
+		allowNull: true,
+	},
+	Verified: {
+		type: Sequelize.BOOLEAN,
+		defaultValue: false,
+		allowNull: false,
+	},
+	Suspended: {
+		type: Sequelize.BOOLEAN,
+		defaultValue: false,
+		allowNull: false,
+	},
 });
 
 module.exports = User;
