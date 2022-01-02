@@ -27,12 +27,10 @@ const User = sequelize.define("User", {
 	},
 	Hash: {
 		type: Sequelize.STRING,
-		// len: [4, 30],
 		allowNull: false,
 	},
 	Salt: {
 		type: Sequelize.STRING,
-		// len: [4, 30],
 		allowNull: false,
 	},
 	Email: {

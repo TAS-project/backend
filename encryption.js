@@ -8,7 +8,7 @@ const encrypt = function (password) {
 const verify = function (password, user_hash, salt) {
 	hash = crypto.pbkdf2Sync(password, salt, 1000, 64, "sha512").toString("hex");
 
-	return [user_hash, hash];
+	return user_hash === hash;
 };
 
 module.exports = {
