@@ -18,18 +18,17 @@ const User = sequelize.define("User", {
 	First_Name: {
 		type: Sequelize.STRING,
 		allowNull: false,
-		len: [4, 30],
-		trim: true,
-		unique: true,
+		len: [3, 30],
 	},
 	Last_Name: {
 		type: Sequelize.STRING,
 		allowNull: false,
-		len: [4, 30],
-		trim: true,
-		unique: true,
+		len: [3, 30],
 	},
-	hash: Sequelize.STRING,
+	Password: {
+		type: Sequelize.STRING,
+		allowNull: false,
+	},
 	Email: {
 		type: Sequelize.STRING,
 		allowNull: false,

@@ -2,16 +2,17 @@ const User = require("../models/User");
 
 exports.register = async (req, res, next) => {
 	try {
-		let User = new User({
+		let new_user = new User({
 			Username: req.body.Username,
 			First_Name: req.body.First_Name,
 			Last_Name: req.body.Last_Name,
-			hash: req.body.Password,
+			Password: req.body.Password,
 			Email: req.body.Email,
 		});
-		await User.save();
-		res.status(200).send(User);
+		await new_user.save();
+		res.status(200).send(new_user);
 	} catch (e) {
 		res.status(400).send(e);
+		console.log(e);
 	}
 };
