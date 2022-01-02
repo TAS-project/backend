@@ -25,8 +25,14 @@ const User = sequelize.define("User", {
 		allowNull: false,
 		len: [3, 30],
 	},
-	Password: {
+	Hash: {
 		type: Sequelize.STRING,
+		// len: [4, 30],
+		allowNull: false,
+	},
+	Salt: {
+		type: Sequelize.STRING,
+		// len: [4, 30],
 		allowNull: false,
 	},
 	Email: {

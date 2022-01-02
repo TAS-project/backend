@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const User = require("./models/User");
 
-const UserRoute = require("./router/user");
+const UserRoute = require("./router/auth");
 app.use(UserRoute);
 
 const port = process.env.PORT || 5000;
