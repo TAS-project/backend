@@ -21,6 +21,11 @@ const Book = sequelize.define("Book", {
 		type: Sequelize.TINYINT,
 		allowNull: true,
 	},
+	On_going: {
+		type: Sequelize.BOOLEAN,
+		defaultValue: true,
+		allowNull: false,
+	},
 	Suspended: {
 		type: Sequelize.BOOLEAN,
 		defaultValue: false,

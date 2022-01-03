@@ -1,10 +1,9 @@
 const express = require("express");
-
 const dotenv = require("dotenv");
 dotenv.config();
 
 const sequelize = require("./config/database");
-sequelize.sync({});
+sequelize.sync({ force: true });
 const app = express();
 
 const port = process.env.PORT || 5000;
@@ -30,6 +29,26 @@ const Bookmark = require("./models/Bookmark");
 const User_Follow = require("./models/User_Follow");
 const Book_Genre = require("./models/Book_Genre");
 const Intrested_Genre = require("./models/Intrested_Genre");
+
+//relations
+User.hasMany(Book, { onDelete: "CASCADE" });
+Book.belongsTo(User, { onDelete: "CASCADE" });
+
+Book.hasMany(Chapter);
+Chapter.belongsTo(Book);
+
+Book.belongsToMany(Genre, { through: Book_Genre });
+User.belongsToMany(User, { as: "Followed_User", through: User_Follow });
+
+User.belongsToMany(Book, { through: Bookmark });
+Book.belongsToMany(User, { through: Bookmark });
+
+User.belongsToMany(Book, { through: Review });
+User.belongsToMany(Book, { through: Rating });
+User.belongsToMany(Chapter, { through: Comment });
+
+User.belongsToMany(Genre, { through: Intrested_Genre });
+Genre.belongsToMany(User, { through: Intrested_Genre });
 
 //routers
 const User_Route = require("./router/User/User_auth");
