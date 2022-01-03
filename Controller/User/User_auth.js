@@ -1,5 +1,5 @@
-const User = require("../models/User");
-const encryption = require("../encryption");
+const User = require("../../models/User");
+const encryption = require("../../encryption");
 
 //register new user into database
 exports.register = async (req, res, next) => {
