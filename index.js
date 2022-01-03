@@ -29,3 +29,6 @@ app.use(Supporter_Route);
 
 //Book
 const Book = require("./models/Book");
+
+//Genre
+const Genre = require("./models/Genre");
