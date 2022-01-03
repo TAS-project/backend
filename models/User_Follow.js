@@ -1,17 +1,13 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../config/database");
 
-const Rating = sequelize.define("Rating", {
+const User_Follow = sequelize.define("User_Follow", {
 	ID: {
 		type: Sequelize.INTEGER,
 		autoIncrement: true,
 		allowNull: false,
 		primaryKey: true,
 	},
-	Rate: {
-		type: Sequelize.TINYINT,
-		allowNull: false,
-	},
 });
 
-module.exports = Rating;
+module.exports = User_Follow;

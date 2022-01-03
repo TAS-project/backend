@@ -1,17 +1,13 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../config/database");
 
-const Rating = sequelize.define("Rating", {
+const Intrested_Genre = sequelize.define("Intrested_Genre", {
 	ID: {
 		type: Sequelize.INTEGER,
 		autoIncrement: true,
 		allowNull: false,
 		primaryKey: true,
 	},
-	Rate: {
-		type: Sequelize.TINYINT,
-		allowNull: false,
-	},
 });
 
-module.exports = Rating;
+module.exports = Intrested_Genre;

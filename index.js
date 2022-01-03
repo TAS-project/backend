@@ -25,6 +25,11 @@ const Genre = require("./models/Genre");
 const Chapter = require("./models/Chapter");
 const Comment = require("./models/Comment");
 const Review = require("./models/Review");
+const Rating = require("./models/Rating");
+const Bookmark = require("./models/Bookmark");
+const User_Follow = require("./models/User_Follow");
+const Book_Genre = require("./models/Book_Genre");
+const Intrested_Genre = require("./models/Intrested_Genre");
 
 //routers
 const User_Route = require("./router/User/User_auth");
