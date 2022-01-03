@@ -32,3 +32,6 @@ const Book = require("./models/Book");
 
 //Genre
 const Genre = require("./models/Genre");
+
+//Chapter
+const Chapter = require("./models/Chapter");
