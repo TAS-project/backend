@@ -9,19 +9,19 @@ const User = sequelize.define("User", {
 		primaryKey: true,
 	},
 	Username: {
-		type: Sequelize.STRING,
+		type: Sequelize.STRING(60),
 		allowNull: false,
-		len: [4, 30],
+		len: [4, 60],
 		trim: true,
 		unique: true,
 	},
 	First_Name: {
-		type: Sequelize.STRING,
+		type: Sequelize.STRING(30),
 		allowNull: false,
 		len: [3, 30],
 	},
 	Last_Name: {
-		type: Sequelize.STRING,
+		type: Sequelize.STRING(30),
 		allowNull: false,
 		len: [3, 30],
 	},
@@ -40,9 +40,9 @@ const User = sequelize.define("User", {
 		unique: true,
 	},
 	About: {
-		type: Sequelize.STRING,
+		type: Sequelize.STRING(500),
 		len: [0, 500],
-		defaultValue: "",
+		defaultValue: null,
 		allowNull: true,
 	},
 	Verified: {

@@ -9,12 +9,11 @@ const Book = sequelize.define("Book", {
 		primaryKey: true,
 	},
 	Book_Name: {
-		type: Sequelize.STRING,
+		type: Sequelize.STRING(100),
 		allowNull: false,
-		validate: { len: [3, 30] },
 	},
 	About: {
-		type: Sequelize.STRING(500),
+		type: Sequelize.STRING(1000),
 		defaultValue: "",
 		allowNull: true,
 	},
