@@ -22,10 +22,10 @@ const User = require("./models/User");
 const User_Route = require("./router/User/User_auth");
 app.use(User_Route);
 
-//Support_Team
-const Support_Team = require("./models/Support_Team");
-const Support_Team_Route = require("./router/Support_Team/support_team_auth");
-app.use(Support_Team_Route);
+//Supporter
+const Supporter = require("./models/Supporter");
+const Supporter_Route = require("./router/Supporter/Supporter_auth");
+app.use(Supporter_Route);
 
 //Book
 const Book = require("./models/Book");

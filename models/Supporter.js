@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../config/database");
 
-const Support_Team = sequelize.define("Support_Team", {
+const Supporter = sequelize.define("Supporter", {
 	ID: {
 		type: Sequelize.INTEGER,
 		autoIncrement: true,
@@ -46,4 +46,4 @@ const Support_Team = sequelize.define("Support_Team", {
 	},
 });
 
-module.exports = Support_Team;
+module.exports = Supporter;
