@@ -8,8 +8,8 @@ const Book = sequelize.define("Book", {
 		allowNull: false,
 		primaryKey: true,
 	},
-	Book_Name: {
-		type: Sequelize.STRING(100),
+	Name: {
+		type: Sequelize.STRING(80),
 		allowNull: false,
 	},
 	About: {

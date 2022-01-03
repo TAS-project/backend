@@ -8,7 +8,7 @@ const Genre = sequelize.define("Genre", {
 		allowNull: false,
 		primaryKey: true,
 	},
-	Genre_Name: {
+	Name: {
 		type: Sequelize.STRING(100),
 		allowNull: false,
 	},

@@ -17,21 +17,19 @@ app.listen(port, "0.0.0.0", () => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//User
+//models
 const User = require("./models/User");
-const User_Route = require("./router/User/User_auth");
-app.use(User_Route);
-
-//Supporter
 const Supporter = require("./models/Supporter");
-const Supporter_Route = require("./router/Supporter/Supporter_auth");
-app.use(Supporter_Route);
-
-//Book
 const Book = require("./models/Book");
-
-//Genre
 const Genre = require("./models/Genre");
-
-//Chapter
 const Chapter = require("./models/Chapter");
+const Comment = require("./models/Comment");
+const Review = require("./models/Review");
+
+//routers
+const User_Route = require("./router/User/User_auth");
+const Supporter_Route = require("./router/Supporter/Supporter_auth");
+
+// json
+app.use(User_Route);
+app.use(Supporter_Route);

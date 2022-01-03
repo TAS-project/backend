@@ -8,11 +8,11 @@ const Chapter = sequelize.define("Chapter", {
 		allowNull: false,
 		primaryKey: true,
 	},
-	Chapter_Number: {
+	Number: {
 		type: Sequelize.SMALLINT,
 		allowNull: false,
 	},
-	Chapter_Name: {
+	Name: {
 		type: Sequelize.STRING(100),
 		allowNull: false,
 	},
