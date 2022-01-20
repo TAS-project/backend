@@ -1,4 +1,5 @@
 const Supporter = require("../../models/Supporter");
+const jwt_token = require("../../JWT_Token/JWT_Token");
 const encryption = require("../../encryption");
 
 //register new user into database
@@ -23,6 +24,7 @@ exports.register = async (req, res, next) => {
 
 //load a user from data base login
 exports.login = async (req, res, next) => {
+	console.log(jwt_token.verifyToken(jwt_token.MakeToken(1, 0).accessToken, 0));
 	try {
 		const load_Supporter = await Supporter.findOne({
 			where: { Username: req.body.Username },
@@ -35,8 +37,10 @@ exports.login = async (req, res, next) => {
 				load_Supporter.Hash,
 				load_Supporter.Salt
 			);
-			if (isCorrect) {
-				res.status(200).send(load_Supporter);
+
+			if (isCorrect && !load_Supporter.Suspended) {
+				const token = jwt_token.MakeToken(load_Supporter.ID);
+				res.status(200).send([load_Supporter, token]);
 			} else {
 				res.status(401).send("Wrong username or password");
 			}

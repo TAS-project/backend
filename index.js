@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const sequelize = require("./config/database");
-sequelize.sync({ force: true });
+// sequelize.sync({ force: true });
 const app = express();
 
 const port = process.env.PORT || 5000;
@@ -53,7 +53,9 @@ Genre.belongsToMany(User, { through: Intrested_Genre });
 //routers
 const User_Route = require("./router/User/User_auth");
 const Supporter_Route = require("./router/Supporter/Supporter_auth");
+const Book_Profile = require("./router/User/book_profile");
 
 // json
 app.use(User_Route);
 app.use(Supporter_Route);
+app.use(Book_Profile);

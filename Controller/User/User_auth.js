@@ -1,4 +1,5 @@
 const User = require("../../models/User");
+const jwt_token = require("../../JWT_Token/JWT_Token");
 const encryption = require("../../encryption");
 
 //register new user into database
@@ -35,8 +36,10 @@ exports.login = async (req, res, next) => {
 				load_user.Hash,
 				load_user.Salt
 			);
-			if (isCorrect) {
-				res.status(200).send(load_user);
+
+			if (isCorrect && !load_user.Suspended) {
+				const token = jwt_token.MakeToken(load_user.ID);
+				res.status(200).send([load_user, token]);
 			} else {
 				res.status(401).send("Wrong username or password");
 			}
