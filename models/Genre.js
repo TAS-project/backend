@@ -12,6 +12,11 @@ const Genre = sequelize.define("Genre", {
 		type: Sequelize.STRING(100),
 		allowNull: false,
 	},
+	Color: {
+		type: Sequelize.STRING(7),
+		defaultValue: "#000000",
+		allowNull: false,
+	},
 	About: {
 		type: Sequelize.STRING(1000),
 		defaultValue: "",
