@@ -1,7 +1,4 @@
-const User = require("../../models/User");
 const Book = require("../../models/Book");
-const jwt_token = require("../../JWT_Token/JWT_Token");
-const encryption = require("../../encryption");
 
 // retrieving book details
 exports.view = async (req, res, next) => {
