@@ -22,7 +22,7 @@ exports.register = async (req, res, next) => {
 				Email: req.body.Email,
 			});
 			await new_user.save();
-			res.status(200).send(new_user);
+			res.status(200).send("New user created");
 		} else {
 			res.status(400).send("Error this user already exist");
 		}
@@ -49,7 +49,7 @@ exports.login = async (req, res, next) => {
 
 			if (isCorrect && !load_user.Suspended) {
 				const token = jwt_token.MakeToken(load_user.ID, 1);
-				res.status(200).send([load_user, token]);
+				res.status(200).send(token);
 			} else {
 				res.status(401).send("Wrong username or password");
 			}

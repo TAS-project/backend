@@ -22,7 +22,7 @@ exports.register = async (req, res, next) => {
 				Email: req.body.Email,
 			});
 			await new_supporter.save();
-			res.status(201).send(new_supporter);
+			res.status(201).send("New supporter created");
 		} else {
 			res.status(400).send("Error this Supporter already exist");
 		}
@@ -49,7 +49,7 @@ exports.login = async (req, res, next) => {
 
 			if (isCorrect && !load_Supporter.Suspended) {
 				const token = jwt_token.MakeToken(load_Supporter.ID, 0);
-				res.status(200).send([load_Supporter, token]);
+				res.status(200).send(token);
 			} else {
 				res.status(401).send("Wrong username or password");
 			}
