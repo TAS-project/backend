@@ -1,6 +1,4 @@
-const e = require("express");
 const jwt = require("jsonwebtoken");
-const { load } = require("nodemon/lib/config");
 const Supporter = require("../models/Supporter");
 const User = require("../models/User");
 
@@ -22,24 +20,28 @@ function MakeToken(id, access) {
 module.exports.MakeToken = MakeToken;
 
 function verifyToken(req, accessed) {
-	const token = req.headers.authorization.split(" ")[1];
-	const person = accessed ? Supporter : User;
-	const decoded = jwt.decode(
-		token,
-		process.env.JWT_SECRET,
-		(algorithms = ["RS256"])
-	);
-	if (decoded.access === accessed) {
-		const load_person = person.findOne({
-			where: { id: decoded.id },
-		});
-		if (load_person) {
-			if (!load_person.suspended) return [true, load_person];
-			else return false;
+	try {
+		const token = req.headers.authorization.split(" ")[1];
+		const person = accessed ? Supporter : User;
+		const decoded = jwt.decode(
+			token,
+			process.env.JWT_SECRET,
+			(algorithms = ["RS256"])
+		);
+		if (decoded.access === accessed) {
+			const load_person = person.findOne({
+				where: { id: decoded.id },
+			});
+			if (load_person) {
+				if (!load_person.suspended) return [true, load_person];
+				else return false;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}
-	} else {
+	} catch (e) {
 		return false;
 	}
 }
