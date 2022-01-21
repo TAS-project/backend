@@ -1,20 +1,24 @@
 const express = require("express");
 const dotenv = require("dotenv");
 dotenv.config();
-
-const sequelize = require("./config/database");
-// sequelize.sync({ force: true });
 const app = express();
-
-const port = process.env.PORT || 5000;
-console.log(process.env.PORT);
-app.listen(port, "0.0.0.0", () => {
-	console.log("server is running");
-});
 
 // for working with json
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use((req, res, next) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader(
+		"Access-Control-Allow-Methods",
+		"OPTIONS, GET, POST, PUT, PATCH, DELETE"
+	);
+	res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+	next();
+});
+
+const sequelize = require("./config/database");
+// sequelize.sync({ force: true });
 
 //models
 const User = require("./models/User");
@@ -59,3 +63,9 @@ const Book_Profile = require("./router/User/book_profile");
 app.use(User_Route);
 app.use(Supporter_Route);
 app.use(Book_Profile);
+
+const port = process.env.PORT || 5000;
+console.log(process.env.PORT);
+app.listen(port, "0.0.0.0", () => {
+	console.log("server is running");
+});
