@@ -19,7 +19,7 @@ function MakeToken(id, access) {
 }
 module.exports.MakeToken = MakeToken;
 
-function verifyToken(req, accessed) {
+async function verifyToken(req, accessed) {
 	try {
 		const token = req.headers.authorization.split(" ")[1];
 		const person = accessed ? Supporter : User;
@@ -29,12 +29,13 @@ function verifyToken(req, accessed) {
 			(algorithms = ["RS256"])
 		);
 		if (decoded.access === accessed) {
-			const load_person = person.findOne({
+			const load_person = await person.findOne({
 				where: { id: decoded.id },
 			});
 			if (load_person) {
-				if (!load_person.suspended) return [true, load_person];
-				else return false;
+				if (!load_person.suspended) {
+					return [true, load_person];
+				} else return false;
 			} else {
 				return false;
 			}

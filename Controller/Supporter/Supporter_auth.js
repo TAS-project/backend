@@ -22,12 +22,12 @@ exports.register = async (req, res, next) => {
 				Email: req.body.Email,
 			});
 			await new_supporter.save();
-			res.status(201).send("New supporter created");
+			res.status(200).send({ Response: "New supporter created" });
 		} else {
-			res.status(400).send("Error this Supporter already exist");
+			res.status(400).send({ Response: "Error this Supporter already exist" });
 		}
 	} catch (e) {
-		res.status(400).send(e);
+		res.status(400).send({ Response: "Error" });
 		console.log(e);
 	}
 };
@@ -55,7 +55,7 @@ exports.login = async (req, res, next) => {
 			}
 		}
 	} catch (e) {
-		res.status(400).send({ Response: "Error"});
+		res.status(400).send({ Response: "Error" });
 		console.log(e);
 	}
 };

@@ -3,7 +3,7 @@ const Token = require("./JWT_Token");
 exports.verifyToken = async (req, res, next) => {
 	try {
 		if (!req.headers.authorization) {
-			res.status(401).send("Please login again");
+			res.status(401).send({ Response: "Please login again" });
 		} else {
 			const result = await Token.verifyToken(req, 1);
 			if (result[0]) {
@@ -12,11 +12,10 @@ exports.verifyToken = async (req, res, next) => {
 				res.status(200);
 				next();
 			} else {
-				console.log("hi");
-				res.status(401).send("Please login again");
+				res.status(401).send({ Response: "Please login again" });
 			}
 		}
 	} catch (e) {
-		res.status(401).send("Please login again");
+		res.status(401).send({ Response: "Please login again" });
 	}
 };
