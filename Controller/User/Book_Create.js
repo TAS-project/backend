@@ -22,9 +22,9 @@ exports.create = async (req, res, next) => {
 			await book_genre.save();
 		}
 
-		res.status(200).send("New book created");
+		res.status(200).send({ Response: "New book created" });
 	} catch (e) {
-		res.status(400).send(e);
+		res.status(400).send({ Response: "Error" });
 		console.log(e);
 	}
 };

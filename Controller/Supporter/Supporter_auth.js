@@ -39,7 +39,7 @@ exports.login = async (req, res, next) => {
 			where: { Username: req.body.Username },
 		});
 		if (load_Supporter == null) {
-			res.status(401).send("Wrong username or password");
+			res.status(401).send({ Response: "Wrong username or password" });
 		} else {
 			isCorrect = await encryption.verify(
 				req.body.Password,
@@ -51,11 +51,11 @@ exports.login = async (req, res, next) => {
 				const token = jwt_token.MakeToken(load_Supporter.ID, 0);
 				res.status(200).send(token);
 			} else {
-				res.status(401).send("Wrong username or password");
+				res.status(401).send({ Response: "Wrong username or password" });
 			}
 		}
 	} catch (e) {
-		res.status(400).send(e);
+		res.status(400).send({ Response: "Error"});
 		console.log(e);
 	}
 };
