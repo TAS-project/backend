@@ -17,5 +17,6 @@ exports.verifyToken = async (req, res, next) => {
 		}
 	} catch (e) {
 		res.status(401).send({ Response: "Please login again" });
+		console.log(e);
 	}
 };

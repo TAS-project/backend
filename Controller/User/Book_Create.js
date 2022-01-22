@@ -9,7 +9,6 @@ exports.create = async (req, res, next) => {
 			About: req.body.About,
 			User_ID: req.person.id,
 		});
-		console.log(req.person.id);
 		await new_book.save();
 
 		const Book_ID = new_book.dataValues.ID;

@@ -22,7 +22,13 @@ module.exports.MakeToken = MakeToken;
 async function verifyToken(req, accessed) {
 	try {
 		const token = req.headers.authorization.split(" ")[1];
-		const person = accessed ? Supporter : User;
+		var person = null;
+		if (accessed === 0) {
+			person = Supporter;
+		} else {
+			person = User;
+		}
+
 		const decoded = jwt.decode(
 			token,
 			process.env.JWT_SECRET,
@@ -43,6 +49,7 @@ async function verifyToken(req, accessed) {
 			return false;
 		}
 	} catch (e) {
+		console.log(e);
 		return false;
 	}
 }
