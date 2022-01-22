@@ -8,6 +8,7 @@ exports.verifyToken = async (req, res, next) => {
 			const result = await Token.verifyToken(req, 1);
 			if (result[0]) {
 				//it was Ok and token had no error
+				req.person = result[1];
 				res.status(200);
 				next();
 			} else {

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { verifyToken } = require("../../JWT_Token/Token_Verify_User");
-const Book_Profile = require("../../Controller/Both/Book_Profile");
+const Book_Create = require("../../Controller/User/Book_Create");
 
-router.post("/User/Book_Profile_View", verifyToken, Book_Profile.view);
+router.post("/User/Book_Create", verifyToken, Book_Create.create);
 module.exports = router;
