@@ -1,6 +1,6 @@
 const Supporter = require("../../models/Supporter");
-const jwt_token = require("../../JWT_Token/JWT_Token");
-const encryption = require("../../encryption");
+const jwt_token = require("../../Tools/JWT_Token/JWT_Token");
+const encryption = require("../../Tools/encryption");
 
 //register new user into database
 exports.register = async (req, res, next) => {

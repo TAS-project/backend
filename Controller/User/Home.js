@@ -1,6 +1,7 @@
 const Book = require("../../models/Book");
 const User = require("../../models/User");
 const Chapter = require("../../models/Chapter");
+const Date_Tool = require("../../Tools/Date_Tool");
 
 // retrieving Home details
 exports.Home_get = async (req, res, next) => {
@@ -18,10 +19,7 @@ exports.Home_get = async (req, res, next) => {
 				order: [["createdAt", "DESC"]],
 			});
 			if (last_Chapter) {
-				var d = load_book[i].updatedAt;
-
-				var Last_Updated =
-					d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear();
+				const Last_Updated = Date_Tool.make_readable(load_book[i].updatedAt);
 				const book_found = {
 					Book_ID: load_book[i].ID,
 					Book_Name: load_book[i].Name,

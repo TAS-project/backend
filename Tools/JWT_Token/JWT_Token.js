@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
-const Supporter = require("../models/Supporter");
-const User = require("../models/User");
+const Supporter = require("../../models/Supporter");
+const User = require("../../models/User");
 
 // access = 0 : Supporter
 // access = 1 : User
