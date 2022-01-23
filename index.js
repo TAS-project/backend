@@ -59,12 +59,14 @@ const User_Route = require("./router/User/User_Auth");
 const Supporter_Route = require("./router/Supporter/Supporter_Auth");
 const Book_Profile = require("./router/User/Book_Profile");
 const Book_Create = require("./router/User/Book_Create");
+const User_Home = require("./router/User/Home");
 
 // json
 app.use(User_Route);
 app.use(Supporter_Route);
 app.use(Book_Profile);
 app.use(Book_Create);
+app.use(User_Home);
 
 const port = process.env.PORT || 5000;
 console.log(process.env.PORT);
