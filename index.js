@@ -61,8 +61,8 @@ const User_Book_Profile = require("./router/User/Book_Profile");
 const User_Book_Create = require("./router/User/Book_Create");
 const User_Home = require("./router/User/Home");
 const User_Chapter_Create = require("./router/User/Chapter_Create");
-const Supporter_Chapter_Genre = require("./router/Supporter/Genre_Create");
-const tmp_User_Chapter_Genre = require("./router/User/Genre_Create");
+const Supporter_Chapter_Genre = require("./router/Supporter/Genre");
+const tmp_User_Chapter_Genre = require("./router/User/Genre");
 
 // json
 app.use(User_Route);
