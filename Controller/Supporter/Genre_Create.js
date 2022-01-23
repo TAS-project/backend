@@ -1,14 +1,14 @@
-const Chapter = require("../../models/Chapter");
+const Genre = require("../../models/Genre");
 
-// create new Chapter
+// create new Genre
 exports.create = async (req, res, next) => {
 	try {
-		let new_chapter = new Chapter({
+		let new_genre = new Genre({
 			Name: req.body.Name,
-			BookID: req.body.Book_ID,
-			Content: req.body.Content,
+			Color: req.body.Color,
+			About: req.body.About,
 		});
-		await new_chapter.save();
+		await new_genre.save();
 		res.status(200).send({ Response: "Done" });
 	} catch (e) {
 		res.status(400).send({ Response: "Error" });
