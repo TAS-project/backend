@@ -57,16 +57,18 @@ Genre.belongsToMany(User, { through: Intrested_Genre });
 //routers
 const User_Route = require("./router/User/User_Auth");
 const Supporter_Route = require("./router/Supporter/Supporter_Auth");
-const Book_Profile = require("./router/User/Book_Profile");
-const Book_Create = require("./router/User/Book_Create");
+const User_Book_Profile = require("./router/User/Book_Profile");
+const User_Book_Create = require("./router/User/Book_Create");
 const User_Home = require("./router/User/Home");
+const User_Chapter_Create = require("./router/User/Chapter_Create.js");
 
 // json
 app.use(User_Route);
 app.use(Supporter_Route);
-app.use(Book_Profile);
-app.use(Book_Create);
+app.use(User_Book_Profile);
+app.use(User_Book_Create);
 app.use(User_Home);
+app.use(User_Chapter_Create);
 
 const port = process.env.PORT || 5000;
 console.log(process.env.PORT);

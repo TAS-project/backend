@@ -6,9 +6,7 @@ const Chapter = require("../../models/Chapter");
 exports.Home_get = async (req, res, next) => {
 	try {
 		var Books = [];
-		const load_book = await Book.findAll({
-			where: { UserID: req.person.ID },
-		});
+		const load_book = await Book.findAll({});
 		for (var i = 0, l = load_book.length; i < l; i++) {
 			const writer = await User.findOne({
 				where: { ID: load_book[i].UserID },
@@ -36,7 +34,6 @@ exports.Home_get = async (req, res, next) => {
 				Books.push(book_found);
 			}
 		}
-		// console.log(books);
 		res.status(200).send({ Response: "Done", Books });
 	} catch (e) {
 		res.status(400).send({ Response: "Error" });
