@@ -60,12 +60,11 @@ const Supporter_Route = require("./router/Supporter/Supporter_Auth");
 const User_Book_Profile = require("./router/User/Book_Profile");
 const User_Book_Create = require("./router/User/Book_Create");
 const User_Home = require("./router/User/Home");
-const User_Chapter_Create = require("./router/User/Chapter_Create");
-const Supporter_Chapter_Genre = require("./router/Supporter/Genre");
-const User_Chapter_Genre = require("./router/User/Genre");
+const Supporter_Genre = require("./router/Supporter/Genre");
+const User_Genre = require("./router/User/Genre");
 const User_UserFollow = require("./router/User/UserFollow");
 const User_Profile_Page = require("./router/User/Profile_Page.js");
-const User_Chapter_View = require("./router/User/Chapter_View.js");
+const User_Chapter = require("./router/User/Chapter.js");
 
 // json
 app.use(User_Route);
@@ -73,12 +72,11 @@ app.use(Supporter_Route);
 app.use(User_Book_Profile);
 app.use(User_Book_Create);
 app.use(User_Home);
-app.use(User_Chapter_Create);
-app.use(Supporter_Chapter_Genre);
-app.use(User_Chapter_Genre);
+app.use(Supporter_Genre);
+app.use(User_Genre);
 app.use(User_UserFollow);
 app.use(User_Profile_Page);
-app.use(User_Chapter_View);
+app.use(User_Chapter);
 
 const port = process.env.PORT || 5000;
 console.log(process.env.PORT);
