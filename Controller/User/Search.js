@@ -8,7 +8,6 @@ const Op = Sequelize.Op;
 // retrieving search details
 exports.search = async (req, res, next) => {
 	try {
-		console.log(req.person);
 		const string = req.body.Search_Text;
 		var Books = [];
 		var Users = [];
@@ -40,20 +39,32 @@ exports.search = async (req, res, next) => {
 			}
 			const founded_user = {
 				User_ID: foundedUsers[i].ID,
+				Username: foundedUsers[i].Username,
 				Name: foundedUsers[i].First_Name + " " + foundedUsers[i].Last_Name,
 				Pic: null,
 				followed_state: followed,
 			};
+			Users.push(founded_user);
 		}
 		for (var i = 0, l = foundedBooks.length; i < l; i++) {
-			var followed = false;
+			var followed = 0;
 			let follow_exist = await Bookmark.findOne({
 				where: { UserID: req.person.ID, BookID: foundedBooks[i].ID },
 			});
 			if (follow_exist) {
-				followed = true;
+				followed = 1;
 			}
-			const founded_book = {};
+			if (foundedBooks[i].UserID === req.person.ID) {
+				followed = -1;
+			}
+			const founded_book = {
+				Book_Id: foundedBooks[i].ID,
+				Name: foundedBooks[i].Name,
+				Summary: foundedBooks[i].About,
+				Pic: null,
+				followed_state: followed,
+			};
+			Books.push(founded_book);
 		}
 		res.status(200).send({ Response: "Done", Books, Users });
 	} catch (e) {
