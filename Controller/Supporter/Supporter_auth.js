@@ -49,7 +49,11 @@ exports.login = async (req, res, next) => {
 
 			if (isCorrect && !load_Supporter.Suspended) {
 				const token = jwt_token.MakeToken(load_Supporter.ID, 0);
-				res.status(200).send(token);
+				res.status(200).send({
+					Response: "Logged In",
+					accessToken: token.accessToken,
+					Username: load_Supporter.Username,
+				});
 			} else {
 				res.status(401).send({ Response: "Wrong username or password" });
 			}

@@ -55,7 +55,6 @@ exports.edit = async (req, res, next) => {
 			{ Name: req.body.Name, Content: req.body.Content },
 			{ where: { ID: req.body.Chapter_ID } }
 		);
-		console.log(edited_chapter);
 		if (edited_chapter[0] === 1) {
 			res.status(200).send({
 				Response: "Done",

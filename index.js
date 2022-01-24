@@ -63,6 +63,7 @@ const User_Home = require("./router/User/Home");
 const Supporter_Genre = require("./router/Supporter/Genre");
 const User_Genre = require("./router/User/Genre");
 const User_UserFollow = require("./router/User/UserFollow");
+const User_BookFollow = require("./router/User/BookFollow");
 const User_Profile_Page = require("./router/User/Profile_Page.js");
 const User_Chapter = require("./router/User/Chapter.js");
 
@@ -77,6 +78,7 @@ app.use(User_Genre);
 app.use(User_UserFollow);
 app.use(User_Profile_Page);
 app.use(User_Chapter);
+app.use(User_BookFollow);
 
 const port = process.env.PORT || 5000;
 console.log(process.env.PORT);
