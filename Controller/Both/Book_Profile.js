@@ -38,6 +38,16 @@ exports.view = async (req, res, next) => {
 			if (load_book.UserID === req.person.ID || req.access === 0) {
 				followed = -1;
 			}
+			var follower = [];
+			let followers_found = await Bookmark.findAll({
+				where: { BookID: load_book.ID },
+			});
+			for (var i = 0, l = followers_found.length; i < l; i++) {
+				foundUser = await User.findOne({
+					where: { ID: followers_found[i].UserID },
+				});
+				follower.push(foundUser.Username);
+			}
 			const book_found = {
 				User_ID: req.person.ID,
 				Book_ID: load_book.ID,
@@ -47,7 +57,7 @@ exports.view = async (req, res, next) => {
 				writer: writer.First_Name + " " + writer.Last_Name,
 				BooK_Rate: load_book.Rating,
 				genres: genres,
-				followed: 666,
+				follower: follower,
 				Summary: load_book.About,
 				Book_Cover: load_book.Cover,
 				Followed_State: followed,
