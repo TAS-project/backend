@@ -1,4 +1,7 @@
 const User = require("../../models/User");
+const User_Follow = require("../../models/User_Follow");
+const Book = require("../../models/Book");
+
 // view profile page
 exports.view = async (req, res, next) => {
 	try {
@@ -12,7 +15,48 @@ exports.view = async (req, res, next) => {
 			email: WantedUser.Email,
 			pic: null,
 		};
-		res.status(200).send({ Response: "Done", profile: profile });
+		var followers = [];
+		var followings = [];
+		let followers_found = await User_Follow.findAll({
+			where: { FollowedUserID: WantedUser.ID },
+		});
+		let followings_found = await User_Follow.findAll({
+			where: { UserID: WantedUser.ID },
+		});
+
+		for (var i = 0, l = followers_found.length; i < l; i++) {
+			foundUser = await User.findOne({
+				where: { ID: followers_found[i].UserID },
+			});
+			followers.push(foundUser.Username);
+		}
+
+		for (var i = 0, l = followings_found.length; i < l; i++) {
+			foundUser = await User.findOne({
+				where: { ID: followings_found[i].FollowedUserID },
+			});
+			followings.push(foundUser.Username);
+		}
+		let books_found = await Book.findAll({
+			where: { UserID: WantedUser.ID },
+		});
+		var user_books = [];
+		for (var i = 0, l = books_found.length; i < l; i++) {
+			user_book = {
+				Book_ID: books_found[i].ID,
+				Book_Name: books_found[i].Name,
+				Summery: books_found[i].About,
+			};
+			user_books.push(user_book);
+		}
+
+		res.status(200).send({
+			Response: "Done",
+			profile: profile,
+			follower: followers,
+			following: followings,
+			user_books: user_books,
+		});
 	} catch (e) {
 		res.status(400).send({ Response: "Error" });
 		console.log(e);
