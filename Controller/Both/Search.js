@@ -60,7 +60,11 @@ exports.search = async (req, res, next) => {
 			if (foundedBooks[i].UserID === req.person.ID || req.access === 0) {
 				followed = -1;
 			}
+			const foundedUser = await User.findOne({
+				where: { ID: foundedBooks[i].UserID },
+			});
 			const founded_book = {
+				Username: foundedUser.Username,
 				Book_Id: foundedBooks[i].ID,
 				Name: foundedBooks[i].Name,
 				Summary: foundedBooks[i].About,
