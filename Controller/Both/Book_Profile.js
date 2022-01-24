@@ -38,6 +38,7 @@ exports.view = async (req, res, next) => {
 				BooK_Rate: load_book.Rating,
 				genres: genres,
 				followed: 666,
+				Summary: load_book.About,
 				photo: null,
 			};
 
