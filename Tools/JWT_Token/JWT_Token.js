@@ -28,12 +28,12 @@ async function verifyToken(req, accessed) {
 		} else {
 			person = User;
 		}
-
 		const decoded = jwt.decode(
 			token,
 			process.env.JWT_SECRET,
 			(algorithms = ["RS256"])
 		);
+
 		if (decoded.access === accessed) {
 			const load_person = await person.findOne({
 				where: { id: decoded.id },
