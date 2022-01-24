@@ -49,13 +49,23 @@ exports.view = async (req, res, next) => {
 			};
 			user_books.push(user_book);
 		}
-
+		var followed = 0;
+		let follow_exist = await User_Follow.findOne({
+			where: { UserID: req.person.ID, FollowedUserID: WantedUser.ID },
+		});
+		if (follow_exist) {
+			followed = 1;
+		}
+		if (WantedUser.ID == req.person.ID || req.access === 0) {
+			followed = -1;
+		}
 		res.status(200).send({
 			Response: "Done",
 			profile: profile,
 			follower: followers,
 			following: followings,
 			user_books: user_books,
+			Followed_State: followed,
 		});
 	} catch (e) {
 		res.status(400).send({ Response: "Error" });

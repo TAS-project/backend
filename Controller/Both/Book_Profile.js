@@ -3,6 +3,7 @@ const User = require("../../models/User");
 const Genre = require("../../models/Genre");
 const Book_Genre = require("../../models/Book_Genre");
 const Chapter = require("../../models/Chapter");
+const Bookmark = require("../../models/Bookmark");
 
 // retrieving book details
 exports.view = async (req, res, next) => {
@@ -27,7 +28,16 @@ exports.view = async (req, res, next) => {
 				});
 				genres.push({ name: genre.Name, color: genre.Color });
 			}
-
+			var followed = 0;
+			let follow_exist = await Bookmark.findOne({
+				where: { UserID: req.person.ID, BookID: load_book.ID },
+			});
+			if (follow_exist) {
+				followed = 1;
+			}
+			if (load_book.UserID === req.person.ID || req.access === 0) {
+				followed = -1;
+			}
 			const book_found = {
 				User_ID: req.person.ID,
 				Book_ID: load_book.ID,
@@ -40,6 +50,7 @@ exports.view = async (req, res, next) => {
 				followed: 666,
 				Summary: load_book.About,
 				photo: null,
+				Followed_State: followed,
 			};
 
 			res.status(200).send({ Response: "Done", Book: book_found });

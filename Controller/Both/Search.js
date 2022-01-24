@@ -27,7 +27,7 @@ exports.search = async (req, res, next) => {
 		});
 		for (
 			var i = 0, l = foundedUsers.length;
-			i < l && foundedUsers[i].ID != req.person.ID;
+			i < l && (foundedUsers[i].ID != req.person.ID || req.access === 0);
 			i++
 		) {
 			var followed = 0;
@@ -37,12 +37,15 @@ exports.search = async (req, res, next) => {
 			if (follow_exist) {
 				followed = 1;
 			}
+			if (req.access === 0) {
+				followed = -1;
+			}
 			const founded_user = {
 				User_ID: foundedUsers[i].ID,
 				Username: foundedUsers[i].Username,
 				Name: foundedUsers[i].First_Name + " " + foundedUsers[i].Last_Name,
 				Pic: null,
-				followed_state: followed,
+				Followed_State: followed,
 			};
 			Users.push(founded_user);
 		}
@@ -54,7 +57,7 @@ exports.search = async (req, res, next) => {
 			if (follow_exist) {
 				followed = 1;
 			}
-			if (foundedBooks[i].UserID === req.person.ID) {
+			if (foundedBooks[i].UserID === req.person.ID || req.access === 0) {
 				followed = -1;
 			}
 			const founded_book = {

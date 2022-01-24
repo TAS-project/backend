@@ -9,6 +9,7 @@ exports.verifyToken = async (req, res, next) => {
 			if (result[0]) {
 				//it was Ok and token had no error
 				req.person = result[1];
+				req.access = 1;
 				res.status(200);
 				next();
 			} else {
