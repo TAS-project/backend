@@ -21,6 +21,11 @@ const Book = sequelize.define("Book", {
 		type: Sequelize.TINYINT,
 		allowNull: true,
 	},
+	Cover: {
+		type: Sequelize.STRING(1000),
+		defaultValue: "https://i.ibb.co/cXH2s7V/bookimg.png",
+		allowNull: false,
+	},
 	On_going: {
 		type: Sequelize.BOOLEAN,
 		defaultValue: true,

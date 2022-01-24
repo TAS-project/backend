@@ -45,6 +45,11 @@ const User = sequelize.define("User", {
 		defaultValue: null,
 		allowNull: true,
 	},
+	Pic: {
+		type: Sequelize.STRING(1000),
+		defaultValue: "https://i.ibb.co/FKRrVtF/image.png",
+		allowNull: false,
+	},
 	Verified: {
 		type: Sequelize.BOOLEAN,
 		defaultValue: false,

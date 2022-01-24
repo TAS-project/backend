@@ -13,7 +13,7 @@ exports.view = async (req, res, next) => {
 			Last_Name: WantedUser.Last_Name,
 			Username: WantedUser.Username,
 			email: WantedUser.Email,
-			pic: null,
+			pic: WantedUser.Pic,
 		};
 		var followers = [];
 		var followings = [];
@@ -45,6 +45,7 @@ exports.view = async (req, res, next) => {
 			user_book = {
 				Book_ID: books_found[i].ID,
 				Book_Name: books_found[i].Name,
+				Book_Cover: books_found[i].Cover,
 				Summery: books_found[i].About,
 			};
 			user_books.push(user_book);

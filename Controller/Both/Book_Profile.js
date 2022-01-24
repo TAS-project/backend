@@ -49,7 +49,7 @@ exports.view = async (req, res, next) => {
 				genres: genres,
 				followed: 666,
 				Summary: load_book.About,
-				photo: null,
+				Book_Cover: load_book.Cover,
 				Followed_State: followed,
 			};
 

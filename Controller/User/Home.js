@@ -29,7 +29,7 @@ exports.Home_get = async (req, res, next) => {
 					Last_Chapter_Name: last_Chapter.Name,
 					Rate: load_book[i].Rating,
 					Last_Updated: Last_Updated,
-					Book_Cover: null,
+					Book_Cover: load_book[i].Cover,
 				};
 				Books.push(book_found);
 			}

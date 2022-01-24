@@ -44,7 +44,7 @@ exports.search = async (req, res, next) => {
 				User_ID: foundedUsers[i].ID,
 				Username: foundedUsers[i].Username,
 				Name: foundedUsers[i].First_Name + " " + foundedUsers[i].Last_Name,
-				Pic: null,
+				Pic: foundedUsers[i].Pic,
 				Followed_State: followed,
 			};
 			Users.push(founded_user);
@@ -68,7 +68,7 @@ exports.search = async (req, res, next) => {
 				Book_Id: foundedBooks[i].ID,
 				Name: foundedBooks[i].Name,
 				Summary: foundedBooks[i].About,
-				Pic: null,
+				Book_Cover: foundedBooks[i].Cover,
 				followed_state: followed,
 			};
 			Books.push(founded_book);
