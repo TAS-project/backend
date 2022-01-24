@@ -18,7 +18,7 @@ exports.create = async (req, res, next) => {
 		if (!genre_error) {
 			let new_book = new Book({
 				Name: req.body.Name,
-				About: req.body.About,
+				About: req.body.Summary,
 				UserID: req.person.ID,
 			});
 			await new_book.save();
@@ -34,7 +34,12 @@ exports.create = async (req, res, next) => {
 				});
 				await book_genre.save();
 			}
-			res.status(200).send({ Response: "New book created" });
+			created_book = {
+				Book_ID: new_book.ID,
+			};
+			res
+				.status(200)
+				.send({ Response: "New book created", Book: created_book });
 		} else {
 			res.status(400).send({ Response: "Not such genres" });
 		}
