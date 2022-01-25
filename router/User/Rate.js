@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { verifyToken } = require("../../Tools/JWT_Token/Token_Verify_User");
-const Genre_All_Books = require("../../Controller/Both/All_Books_Of_A_Genre");
+const User_Rate_Controller = require("../../Controller/User/Rate");
 
-router.post("/User/Genre_All_Books", verifyToken, Genre_All_Books.view);
+router.post("/User/Rate", verifyToken, User_Rate_Controller.Rate);
 module.exports = router;
