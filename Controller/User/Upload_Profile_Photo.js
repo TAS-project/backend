@@ -1,4 +1,5 @@
 const multer = require("multer");
+const User = require("../../models/User");
 
 const multerConfig = multer.diskStorage({
 	destination: (req, file, callback) => {
@@ -26,5 +27,9 @@ const upload = multer({
 exports.uploadImage = upload.single("photo");
 
 exports.upload = async (req, res) => {
-	res.status(200).send({ Response: "Done" });
+	try {
+		res.status(200).send({ Response: "Done" });
+	} catch {
+		res.status(400).send({ Response: "Error" });
+	}
 };
