@@ -30,11 +30,14 @@ exports.upload1 = async (req, res) => {
 	try {
 		const BookID = req.params.BookID;
 		console.log(BookID);
-		const loadbook = await Book.update(
+		const tmp = await Book.update(
 			{ Cover: process.env.PHOTOS_PREFIX + req.file.path },
 			{ where: { ID: BookID } }
 		);
-		res.status(200).send({ Response: "Done" });
+		const load_book = await Book.findOne({
+			where: { ID: req.params.BookID },
+		});
+		res.status(200).send({ Response: "Done", Cover: load_book.Cover });
 	} catch (e) {
 		console.log(e);
 		res.status(400).send({ Response: "Error" });

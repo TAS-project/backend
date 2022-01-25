@@ -28,11 +28,15 @@ exports.uploadImage = upload.single("photo");
 
 exports.upload = async (req, res) => {
 	try {
-		const load_user = await User.update(
+		const tmp = await User.update(
 			{ Pic: process.env.PHOTOS_PREFIX + req.file.path },
 			{ where: { ID: req.person.ID } }
 		);
-		res.status(200).send({ Response: "Done" });
+
+		const load_user = await User.findOne({
+			where: { ID: req.person.ID },
+		});
+		res.status(200).send({ Response: "Done", ProfilePhoto: load_user.Pic });
 	} catch (e) {
 		console.log(e);
 		res.status(400).send({ Response: "Error" });
