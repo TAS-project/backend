@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 });
 
 const sequelize = require("./config/database");
-sequelize.sync({ force: true });
+// sequelize.sync({ force: true });
 
 //static the folder
 app.use("/Photos", express.static("Photos"));
