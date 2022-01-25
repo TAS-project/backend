@@ -1,13 +1,13 @@
 const multer = require("multer");
-const User = require("../../models/User");
+const Book = require("../../models/Book");
 
 const multerConfig = multer.diskStorage({
 	destination: (req, file, callback) => {
-		callback(null, "Photos/Users/");
+		callback(null, "Photos/Books/");
 	},
 	filename: (req, file, callback) => {
 		const ext = file.mimetype.split("/")[1];
-		callback(null, `ProfilePhoto-${req.person.ID}.jpg`);
+		callback(null, `BookCover-${req.params.BookID}.jpg`);
 	},
 });
 
@@ -19,18 +19,20 @@ const isImage = (req, file, callback) => {
 	}
 };
 
-const upload = multer({
+const upload1 = multer({
 	storage: multerConfig,
 	fileFilter: isImage,
 });
 
-exports.uploadImage = upload.single("photo");
+exports.uploadImage1 = upload1.single("photo");
 
-exports.upload = async (req, res) => {
+exports.upload1 = async (req, res) => {
 	try {
-		const load_user = await User.update(
-			{ Pic: req.file.path },
-			{ where: { ID: req.person.ID } }
+		const BookID = req.params.BookID;
+		console.log(BookID);
+		const loadbook = await Book.update(
+			{ Cover: req.file.path },
+			{ where: { ID: BookID } }
 		);
 		res.status(200).send({ Response: "Done" });
 	} catch (e) {
