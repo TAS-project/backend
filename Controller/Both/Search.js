@@ -25,30 +25,28 @@ exports.search = async (req, res, next) => {
 				},
 			},
 		});
-		for (
-			var i = 0, l = foundedUsers.length;
-			i < l && (foundedUsers[i].ID != req.person.ID || req.access === 0);
-			i++
-		) {
-			console.log(req.access);
-			var followed = 0;
-			let follow_exist = await User_Follow.findOne({
-				where: { UserID: req.person.ID, FollowedUserID: foundedUsers[i].ID },
-			});
-			if (follow_exist) {
-				followed = 1;
+		for (var i = 0, l = foundedUsers.length; i < l; i++) {
+			if (foundedUsers[i].ID !== req.person.ID || req.access === 0) {
+				console.log(req.person.ID);
+				var followed = 0;
+				let follow_exist = await User_Follow.findOne({
+					where: { UserID: req.person.ID, FollowedUserID: foundedUsers[i].ID },
+				});
+				if (follow_exist) {
+					followed = 1;
+				}
+				if (req.access === 0) {
+					followed = -1;
+				}
+				const founded_user = {
+					User_ID: foundedUsers[i].ID,
+					Username: foundedUsers[i].Username,
+					Name: foundedUsers[i].First_Name + " " + foundedUsers[i].Last_Name,
+					Pic: foundedUsers[i].Pic,
+					Followed_State: followed,
+				};
+				Users.push(founded_user);
 			}
-			if (req.access === 0) {
-				followed = -1;
-			}
-			const founded_user = {
-				User_ID: foundedUsers[i].ID,
-				Username: foundedUsers[i].Username,
-				Name: foundedUsers[i].First_Name + " " + foundedUsers[i].Last_Name,
-				Pic: foundedUsers[i].Pic,
-				Followed_State: followed,
-			};
-			Users.push(founded_user);
 		}
 		for (var i = 0, l = foundedBooks.length; i < l; i++) {
 			var followed = 0;
