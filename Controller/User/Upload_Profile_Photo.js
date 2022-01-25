@@ -7,7 +7,7 @@ const multerConfig = multer.diskStorage({
 	},
 	filename: (req, file, callback) => {
 		const ext = file.mimetype.split("/")[1];
-		callback(null, `ProfilePhoto-${req.person.ID}.${ext}`);
+		callback(null, `ProfilePhoto-${req.person.ID}.jpg`);
 	},
 });
 
@@ -28,6 +28,10 @@ exports.uploadImage = upload.single("photo");
 
 exports.upload = async (req, res) => {
 	try {
+		const load_user = await User.update(
+			{ Pic: req.file.path },
+			{ where: { ID: req.person.ID } }
+		);
 		res.status(200).send({ Response: "Done" });
 	} catch {
 		res.status(400).send({ Response: "Error" });
