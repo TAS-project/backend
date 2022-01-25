@@ -7,7 +7,7 @@ const multerConfig = multer.diskStorage({
 	},
 	filename: (req, file, callback) => {
 		const ext = file.mimetype.split("/")[1];
-		callback(null, `BookCover-${req.params.BookID}.jpg`);
+		callback(null, `BookCover-${req.params.BookID}.${ext}`);
 	},
 });
 
@@ -31,7 +31,7 @@ exports.upload1 = async (req, res) => {
 		const BookID = req.params.BookID;
 		console.log(BookID);
 		const loadbook = await Book.update(
-			{ Cover: req.file.path },
+			{ Cover: process.env.PHOTOS_PREFIX + req.file.path },
 			{ where: { ID: BookID } }
 		);
 		res.status(200).send({ Response: "Done" });
