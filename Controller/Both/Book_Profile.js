@@ -55,7 +55,7 @@ exports.view = async (req, res, next) => {
 				Writer_ID: writer.ID,
 				Writer_Username: writer.Username,
 				writer: writer.First_Name + " " + writer.Last_Name,
-				BooK_Rate: load_book.Rating,
+				BooK_Rate: load_book.Rating / 10,
 				genres: genres,
 				follower: follower,
 				Summary: load_book.About,

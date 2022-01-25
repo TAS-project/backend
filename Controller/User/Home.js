@@ -27,7 +27,7 @@ exports.Home_get = async (req, res, next) => {
 					Writer_Username: writer.Username,
 					Last_Chapter_ID: last_Chapter.ID,
 					Last_Chapter_Name: last_Chapter.Name,
-					Rate: load_book[i].Rating,
+					Rate: load_book[i].Rating / 10,
 					Last_Updated: Last_Updated,
 					Book_Cover: load_book[i].Cover,
 				};
