@@ -51,11 +51,11 @@ You need to fill these values with corect inputs in order to create and use data
 
 </br>
 create a data base table and
-after npm install uncomment the line 21 of index.js to create database tables.
+after npm install `uncomment the line 21 of index.js` to create database tables.
 
 then run this script for seeders:
 </br></br></br>
-npx sequelize-cli db:seed --seed Seeder_Users Seeder_Genres Seeder_Books Seeder_Book_Genres Seeder_Chapter Seeder_Comment Seeder_Follow_User Seeder_Bookmark
+`npx sequelize-cli db:seed --seed Seeder_Users Seeder_Genres Seeder_Books Seeder_Book_Genres Seeder_Chapter Seeder_Comment Seeder_Follow_User Seeder_Bookmark`
 
 </br>
 </br>
