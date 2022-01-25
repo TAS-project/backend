@@ -68,6 +68,7 @@ const User_Profile_Page = require("./router/User/Profile_Page.js");
 const User_Chapter = require("./router/User/Chapter.js");
 const User_Search = require("./router/User/User_Search");
 const User_Comment = require("./router/User/Comment");
+const User_Genre_All_Books = require("./router/User/Genre_All_Books");
 
 // json
 app.use(User_Route);
@@ -83,6 +84,7 @@ app.use(User_Chapter);
 app.use(User_BookFollow);
 app.use(User_Search);
 app.use(User_Comment);
+app.use(User_Genre_All_Books);
 
 const port = process.env.PORT || 5000;
 console.log(process.env.PORT);
