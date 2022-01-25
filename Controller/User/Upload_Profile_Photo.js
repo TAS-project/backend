@@ -25,6 +25,6 @@ const upload = multer({
 
 exports.uploadImage = upload.single("photo");
 
-exports.upload = (req, res) => {
+exports.upload = async (req, res) => {
 	res.status(200).send({ Response: "Done" });
 };
