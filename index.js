@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 });
 
 const sequelize = require("./config/database");
-// sequelize.sync({ force: true });
+sequelize.sync({ force: true });
 
 //static the folder
 app.use("/Photos", express.static("Photos"));
@@ -92,6 +92,9 @@ app.use(User_Comment);
 app.use(User_Genre_All_Books);
 app.use(User_Rate);
 app.use(user_upload_image);
+
+var cors = require("cors");
+app.use(cors());
 
 const port = process.env.PORT || 5000;
 console.log(process.env.PORT);
