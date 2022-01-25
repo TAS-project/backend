@@ -30,6 +30,7 @@ exports.search = async (req, res, next) => {
 			i < l && (foundedUsers[i].ID != req.person.ID || req.access === 0);
 			i++
 		) {
+			console.log(req.access);
 			var followed = 0;
 			let follow_exist = await User_Follow.findOne({
 				where: { UserID: req.person.ID, FollowedUserID: foundedUsers[i].ID },
