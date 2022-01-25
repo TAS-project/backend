@@ -20,7 +20,7 @@ module.exports = {
 				About:
 					"I walked through the door with you , The air was cold. But something about it felt like home somehow And I left my scarf there at your sister's house And you've still got it in your drawer even now",
 				Rating: 0,
-				Cover: "http://localhost:3001/Photos/Seeders/Books/BookCover-1.png",
+				Cover: "http://localhost:3001/Photos/Seeders/Books/BookCover-2.png",
 				On_going: true,
 				Suspended: false,
 				UserID: 1,
@@ -32,7 +32,7 @@ module.exports = {
 				About:
 					"I tapped on your window on your darkest night ,The shape of you was jagged and weak. There was nowhere for me to stay, But I stayed anyway.",
 				Rating: 0,
-				Cover: "http://localhost:3001/Photos/Seeders/Books/BookCover-1.png",
+				Cover: "http://localhost:3001/Photos/Seeders/Books/BookCover-3.png",
 				On_going: true,
 				Suspended: false,
 				UserID: 2,
@@ -44,7 +44,7 @@ module.exports = {
 				About:
 					"We were both young when I first saw you, I close my eyes and the flashback starts, I'm standin' there On a balcony in summer air...",
 				Rating: 0,
-				Cover: "http://localhost:3001/Photos/Seeders/Books/BookCover-1.png",
+				Cover: "http://localhost:3001/Photos/Seeders/Books/BookCover-4.png",
 				On_going: true,
 				Suspended: false,
 				UserID: 2,
@@ -56,7 +56,7 @@ module.exports = {
 				About:
 					"Fatefully, I tried to pick my battles 'til the battle picked me. Misery ,Like the war of words I shouted in my sleep.And you passed right by ...",
 				Rating: 0,
-				Cover: "http://localhost:3001/Photos/Seeders/Books/BookCover-1.png",
+				Cover: "http://localhost:3001/Photos/Seeders/Books/BookCover-5.png",
 				On_going: true,
 				Suspended: false,
 				UserID: 2,
@@ -80,7 +80,7 @@ module.exports = {
 				About:
 					"I don't know why all the trees change in the fall But I know you're not scared of anything at all Don't know if Snow White's house is near or far away But I know I had the best day with you today",
 				Rating: 0,
-				Cover: "http://localhost:3001/Photos/Seeders/Books/BookCover-1.png",
+				Cover: "http://localhost:3001/Photos/Seeders/Books/BookCover-2.png",
 				On_going: true,
 				Suspended: false,
 				UserID: 4,

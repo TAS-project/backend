@@ -118,7 +118,7 @@ module.exports = {
 			},
 
 			{
-				Name: "",
+				Name: "The gate of heaven",
 				Content:
 					"Dr Tomas Streyer looked around the control room at his team of scientists and engineers. He was pretending to be calm, but he was both excited and terrified. The next few minutes would be the starting point of years more research towards understanding the secrets of how the universe began. He looked out of the window at the beautiful blue summer sky and took a deep breath.For a second, everything went absolutely black, as if he had gone blind. Tomas cried out in shock, but the lights were already on again. Whatever that was, it was not supposed to have happened.Instead of the perfect summer day of five minutes ago, the sky was darker than the blackest night.Not only had the sun disappeared, there weren't even any stars.People were shouting and screaming, calling their families on the telephone, afraid they had all suddenly disappeared too. Tomas ignored their noise. He sat at the main computer and started reading the data from his experiment. Nothing there explained what was happening. He rushed for the exit, his team running behind him until they were all outside the laboratory building.Everyone else in the research centre was outside, panicking and confused. They were using the screens and torches on their mobile phones to see where they were going, waving them around like giant fireflies. Several people got in their cars and turned on the headlights, driving them to the entrance to make a small area of brightness in the dark for everybody to crowd together. When the automatic street lights turned on, some people cheered, but most of them were still frightened.",
 				BookID: 2,
