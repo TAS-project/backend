@@ -19,6 +19,7 @@ const Book = sequelize.define("Book", {
 	},
 	Rating: {
 		type: Sequelize.TINYINT,
+		defaultValue: 0,
 		allowNull: true,
 	},
 	Cover: {
