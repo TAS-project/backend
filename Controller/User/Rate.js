@@ -44,7 +44,6 @@ exports.Rate = async (req, res, next) => {
 					{ Rating: Average },
 					{ where: { ID: req.body.Book_ID } }
 				);
-				console.log(Average);
 			}
 			let book_done = await Book.findOne({
 				where: { ID: req.body.Book_ID },

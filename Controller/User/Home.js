@@ -7,7 +7,7 @@ const Date_Tool = require("../../Tools/Date_Tool");
 exports.Home_get = async (req, res, next) => {
 	try {
 		var Books = [];
-		const load_book = await Book.findAll({
+		let load_book = await Book.findAll({
 			where: { UserID: req.person.ID },
 		});
 		for (var i = 0, l = load_book.length; i < l; i++) {
@@ -34,7 +34,6 @@ exports.Home_get = async (req, res, next) => {
 				Books.push(book_found);
 			}
 		}
-		// console.log(books);
 		res.status(200).send({ Response: "Done", Books });
 	} catch (e) {
 		res.status(400).send({ Response: "Error" });
