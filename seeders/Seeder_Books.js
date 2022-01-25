@@ -64,17 +64,6 @@ module.exports = {
 				updatedAt: new Date(),
 			},
 			{
-				Name: "",
-				About: "",
-				Rating: 0,
-				Cover: "http://localhost:3001/Photos/Seeders/Books/BookCover-1.png",
-				On_going: true,
-				Suspended: false,
-				UserID: 2,
-				createdAt: new Date(),
-				updatedAt: new Date(),
-			},
-			{
 				Name: "Everything Has Changed",
 				About:
 					"All I knew This morning when I woke Is I know something now , Know something now I didn't before. And all I've seen Since eighteen hours ago Is green eyes and freckles and your smile In the back of my mind making me feel home",
