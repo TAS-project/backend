@@ -68,7 +68,7 @@ module.exports = {
 				About:
 					"All I knew This morning when I woke Is I know something now , Know something now I didn't before. And all I've seen Since eighteen hours ago Is green eyes and freckles and your smile In the back of my mind making me feel home",
 				Rating: 0,
-				Cover: "http://localhost:3001/Photos/Seeders/Books/BookCover-1.png",
+				Cover: "http://localhost:3001/Photos/Seeders/Books/BookCover-6.png",
 				On_going: true,
 				Suspended: false,
 				UserID: 3,
@@ -80,7 +80,7 @@ module.exports = {
 				About:
 					"I don't know why all the trees change in the fall But I know you're not scared of anything at all Don't know if Snow White's house is near or far away But I know I had the best day with you today",
 				Rating: 0,
-				Cover: "http://localhost:3001/Photos/Seeders/Books/BookCover-2.png",
+				Cover: "http://localhost:3001/Photos/Seeders/Books/BookCover-7.png",
 				On_going: true,
 				Suspended: false,
 				UserID: 4,
