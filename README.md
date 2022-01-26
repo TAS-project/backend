@@ -57,6 +57,12 @@ then run this script for seeders:
 </br></br></br>
 `npx sequelize-cli db:seed --seed Seeder_Users Seeder_Genres Seeder_Books Seeder_Book_Genres Seeder_Chapter Seeder_Comment Seeder_Follow_User Seeder_Bookmark`
 
+
+After running seeders use these credentials to enter the website or create a new user:
+
+Username: TAS ,
+Password: 1234
+
 </br>
 </br>
 Now your database is loaded with data
