@@ -54,14 +54,15 @@ create a data base table and
 after npm install `uncomment the line 21 of index.js` to create database tables.
 
 then run this script for seeders:
-</br></br></br>
+</br></br>
 `npx sequelize-cli db:seed --seed Seeder_Users Seeder_Genres Seeder_Books Seeder_Book_Genres Seeder_Chapter Seeder_Comment Seeder_Follow_User Seeder_Bookmark`
 
+</br>
+</br>
 
-After running seeders use these credentials to enter the website or create a new user:
+### After running seeders use these credentials to enter the website or create a new user:
 
-Username: TAS ,
-Password: 1234
+### Username: TAS , Password: 1234
 
 </br>
 </br>
