@@ -19,7 +19,7 @@ make a folder you want to put the frontend react js code which cloned from githu
 open TAS-project in github and clone master branch of frontend repository with this script :
 `git clone {the url of master branch of frontend repo}`
 when you clone frontend :
-if you use npm, you should first run the script `npm start` which installs the required dependencies. after that
+if you use npm, you should first run the script `npm install` which installs the required dependencies. after that
 then run `npm start` to run the React project and show the result in browser.
 if you use yarn, you should first run the script `yarn build ` and `yarn start`.
 </br>
