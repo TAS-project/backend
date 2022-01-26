@@ -47,7 +47,7 @@ const User = sequelize.define("User", {
 	},
 	Pic: {
 		type: Sequelize.STRING(1000),
-		defaultValue: "https://i.ibb.co/FKRrVtF/image.png",
+		defaultValue: "http://localhost:3001/Photos/Users/ProfilePhoto-Default.png",
 		allowNull: false,
 	},
 	Verified: {

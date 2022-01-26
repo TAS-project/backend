@@ -24,7 +24,7 @@ const Book = sequelize.define("Book", {
 	},
 	Cover: {
 		type: Sequelize.STRING(1000),
-		defaultValue: "https://i.ibb.co/cXH2s7V/bookimg.png",
+		defaultValue: "http://localhost:3001/Photos/Books/BookCover-Default.png",
 		allowNull: false,
 	},
 	On_going: {
