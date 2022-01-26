@@ -1,0 +1,944 @@
+{
+	"info": {
+		"_postman_id": "deb0e35b-80f2-45ac-bf4b-32dde97b3279",
+		"name": "TAS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "log in register",
+			"item": [
+				{
+					"name": "register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Username\": \"TAS\",\r\n    \"First_Name\": \"TAS\",\r\n    \"Last_Name\": \"TAS\",\r\n    \"Password\": \"1234\",\r\n    \"Email\": \"TAS12@outlook.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/User/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"User",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register Support Team",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Username\": \"TAS\",\r\n    \"First_Name\": \"TAS\",\r\n    \"Last_Name\": \"TAS\",\r\n    \"Password\": \"1234\",\r\n    \"Email\": \"TAS@outlook.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/Supporter/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"Supporter",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();\r",
+									"pm.collectionVariables.set('user token', res.accessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Username\": \"TAS\",\r\n    \"Password\": \"9876\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/User/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"User",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login Support Team",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();\r",
+									"pm.collectionVariables.set('supporter token', res.accessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Username\": \"TAS\",\r\n    \"Password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/Supporter/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"Supporter",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "after logging in",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Home",
+							"item": [
+								{
+									"name": "Home_View",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3001/User/Home",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"Home"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Book",
+							"item": [
+								{
+									"name": "Book Profile",
+									"item": [
+										{
+											"name": "Book_Profile_View",
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"Book_ID\": 12\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "localhost:3001/User/Book_Profile_View",
+													"host": [
+														"localhost"
+													],
+													"port": "3001",
+													"path": [
+														"User",
+														"Book_Profile_View"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Book_Profile_Chapters",
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"Book_ID\": 1\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "localhost:3001/User/Book_Profile_Chapters",
+													"host": [
+														"localhost"
+													],
+													"port": "3001",
+													"path": [
+														"User",
+														"Book_Profile_Chapters"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Book_Create",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"Name\": \"Bookhi\",\r\n    \"Genres\": [\r\n        {\r\n            \"Genre_ID\": 1\r\n        },\r\n        {\r\n            \"Genre_ID\": 2\r\n        },\r\n        {\r\n            \"Genre_ID\": 3\r\n        }\r\n    ],\r\n    \"Summary\": \"The best way to know how much detail to include in your description is by traveling to the local library or bookstore and holding real books in your hand.There, you’ll have thousands of books at your fingertips. You will quickly realize how one author works his or her magic, causing you want to read more, and why another author’s book cover fails to peak your interest.\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3001/User/Book_Create",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"Book_Create"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Book_Edit",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"Book_ID\": 1,\r\n    \"Name\": \"Book\",\r\n    \"Genres\": [\r\n        {\r\n            \"Genre_ID\": 1\r\n        },\r\n        {\r\n            \"Genre_ID\": 2\r\n        },\r\n        {\r\n            \"Genre_ID\": 3\r\n        }\r\n    ],\r\n    \"Summary\": \"The best way to know how much detail to include in your description is by traveling to the local library or bookstore and holding real books in your hand.There, you’ll have thousands of books at your fingertips. You will quickly realize how one author works his or her magic, causing you want to read more, and why another author’s book cover fails to peak your interest.\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3001/User/Book_Edit",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"Book_Edit"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Rate",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"Book_ID\": 1,\r\n    \"Rate\": 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3001/User/Rate",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"Rate"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User Upload_Book_Cover",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "photo",
+													"type": "file",
+													"src": "/C:/Users/ASUS/Desktop/intro1.jpg"
+												}
+											]
+										},
+										"url": {
+											"raw": "localhost:3001/User/Upload_Book_Cover/:BookID/",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"Upload_Book_Cover",
+												":BookID",
+												""
+											],
+											"variable": [
+												{
+													"key": "BookID",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get book cover",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3001/Photos\\Books\\BookCover-1.jpeg",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"Photos",
+												"Books",
+												"BookCover-1.jpeg"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Chapter",
+							"item": [
+								{
+									"name": "Chapter_Create",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"Book_ID\": 5,\r\n    \"Name\": \"ABC\",\r\n    \"Content\": \"Git (/ɡɪt/)[7] is software for tracking changes in any set of files, usually used for coordinating work among programmers collaboratively developing source code during software development.Its goals include speed, data integrity, and support for distributed, non- linear workflows (thousands of parallel branches running on different systems).[8][9][10]Git was created by Linus Torvalds in 2005 for development of the Linux kernel, with other kernel developers contributing to its initial development.[11] Since 2005, Junio Hamano has been the core maintainer.As with most other distributed version control systems, and unlike most client–server systems, every Git directory on every computer is a full - fledged repository with complete history and full version - tracking abilities, independent of network access or a central server.[12] Git is free and open - source software distributed under the GPL - 2.0 - only license.Git(/ɡɪt/)[7] is software for tracking changes in any set of files, usually used for coordinating work among programmers collaboratively developing source code during software development.Its goals include speed, data integrity, and support for distributed, non - linear workflows(thousands of parallel branches running on different systems).[8][9][10]Git was created by Linus Torvalds in 2005 for development of the Linux kernel, with other kernel developers contributing to its initial development.[11] Since 2005, Junio Hamano has been the core maintainer.As with most other distributed version control systems, and unlike most client–server systems, every Git directory on every computer is a full - fledged repository with complete history and full version - tracking abilities, independent of network access or a central server.[12] Git is free and open - source software distributed under the GPL - 2.0 - only license.\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3001/User/Chapter_Create",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"Chapter_Create"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Chapter_View",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"Chapter_ID\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3001/User/Chapter_view",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"Chapter_view"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Chapter_Edit",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"Chapter_ID\": 2,\r\n    \"Name\": \"AxC\",\r\n    \"Content\": \"ag\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3001/User/Chapter_Edit",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"Chapter_Edit"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Genre",
+							"item": [
+								{
+									"name": "Genre_All",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3001/User/Genre_All",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"Genre_All"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Genre All Books View",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"Genre_ID\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3001/User/Genre_All_Books",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"Genre_All_Books"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Follow",
+							"item": [
+								{
+									"name": "UserFollow",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"Username\": \"TAS2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3001/User/UserFollow",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"UserFollow"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "BookFollow",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"Book_ID\": \"2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3001/User/BookFollow",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"BookFollow"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Profile",
+							"item": [
+								{
+									"name": "Profile_Page",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"Username\": \"TAS\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3001/User/Profile_Page",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"Profile_Page"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User Edit profile",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"Username\": \"TAS\",\r\n    \"First_Name\": \"TAS\",\r\n    \"Last_Name\": \"TAS\",\r\n    \"Password\": \"1234\",\r\n    \"Email\": \"TAS@outlook.com\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3001/User/Edit",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"Edit"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User Upload_Profile_Image",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "photo",
+													"type": "file",
+													"src": "/C:/Users/ASUS/Desktop/20220125_151912_0000.png"
+												}
+											]
+										},
+										"url": {
+											"raw": "localhost:3001/User/Upload_Profile_Image/",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"Upload_Profile_Image",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get Profile Photo",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3001/Photos\\Users\\ProfilePhoto-1.jpeg",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"Photos",
+												"Users",
+												"ProfilePhoto-1.jpeg"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Comment",
+							"item": [
+								{
+									"name": "Comment_Write",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"Chapter_ID\": 1,\r\n    \"Comment\": \"hi\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3001/User/Comment_Write",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"User",
+												"Comment_Write"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "User Search",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Search_Text\": \"tas\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3001/User/Search",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"User",
+										"Search"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{user token}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Supporter",
+					"item": [
+						{
+							"name": "Genre",
+							"item": [
+								{
+									"name": "Genre_Create",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"Genre_Title\": \"Romantic\",\r\n    \"Color\": \"#ff2209\",\r\n    \"Summary\": \":)\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3001/Supporter/Genre_Create",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"Supporter",
+												"Genre_Create"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{supporter token}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "user token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWNjZXNzIjoxLCJpYXQiOjE2NDI5NzI5MTEsImV4cCI6MTY0MzU3NzcxMX0.tameSpFu2auBJcIzBTPYu_HwKrXaZ0mrsIvVTVnqsp0"
+		},
+		{
+			"key": "url",
+			"value": "localhost:3001/"
+		},
+		{
+			"key": "supporter token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWNjZXNzIjowLCJpYXQiOjE2NDI5Nzg5OTMsImV4cCI6MTY0MzU4Mzc5M30.hEl3dcX1TmRN-GAzwjVin2Ypi9Uk-ndqtigdcngKLu4"
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
